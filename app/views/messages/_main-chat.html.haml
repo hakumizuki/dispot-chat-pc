@@ -1,0 +1,43 @@
+.main-chat
+
+  .main-chat__header
+    .main-chat__header__left-box
+      .main-chat__header__left-box__group-name
+        Timpos
+      %ul.main-chat__header__left-box__members
+        Members :
+        %li
+          user1
+        %li
+          user2
+      %ul.main-chat__header__left-box__invited-users
+        Invited Members :
+        %li
+          user3
+        %li
+          user4
+    .main-chat__header__edit-btn
+      Edit
+
+  .main-chat__messages
+
+  .main-chat__text-form
+    %ul.search-mode-btns
+      %li.clipboard-icon
+        %a
+          = icon('far', 'clipboard')
+      %li.search-btn
+        %a
+          = icon('fas', 'search')
+      %li
+        %a
+          = icon('far', 'star')
+      %li
+        %a
+          = icon('fas', 'link')
+      %li
+        %a
+          = icon('fas', 'image')
+    %input.text_field{ type: "text", placeholder: "type a message here..."}
+    .submit-btn
+      Send
