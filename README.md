@@ -38,10 +38,10 @@ Things you may want to cover:
     - has_many: users(through: groups_users), messages, groups_users
 
   - notes
-    name|string|nf(*1)|
+    title|string|nf(*1)|
     content|text||
-    image|string||
-    url|string||
+    image|string||(参考画像)
+    url|string||(参考url)
     group_id|reference|nf, ft|
     - belongs_to: group
 

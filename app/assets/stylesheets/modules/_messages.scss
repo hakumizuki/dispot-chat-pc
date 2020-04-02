@@ -14,23 +14,34 @@
     height: 100vh;
     font-size: 30px;
     li{
-      padding-bottom: 10px;
+      margin-bottom: 10px;
+    }
+    li.move-right{
+      padding-left: 4px;
+    }
+    li.move-right-abit{
+      padding-left: 3px;
+    }
+    li:hover{
+      margin-bottom: 9px;
+      border-bottom: 1px solid #00e0ff;
     }
   }
   .side-bar{
-    background-color: blue;
+    background-color: #333;
     width: 24vw;
     height: 100vh;
     &__header{
       display: flex;
       align-items: center;
       padding-left: calc(2vw);
-      background-color: lightblue;
+      background-color: #444;
       width: 24vw;
       height: 15vh;
       &__user-name{
         font-size: 24px;
         margin-left: calc(2vw);
+        color: #eee;
       }
     }
   }
@@ -46,7 +57,7 @@
       padding-left: 20px;
       width: 69.4vw;
       height: 15vh;
-      border-bottom: 1px solid mediumseagreen;
+      border-bottom: 1px solid lightblue;
       &__left-box{
         &__group-name{
           color: white;
@@ -71,7 +82,7 @@
         }
       }
       &__edit-btn{
-        border: 1px solid skyblue;
+        border: 1px solid #00e0ff;
         color: white;
         padding-top: 11px;
         margin-top: 5px;
@@ -83,14 +94,14 @@
       }
     }
     &__messages{
-      background-color: green;
+      background-color: #999;
       width: 69.4vw;
       height: 73vh;
     }
     &__text-form{
       display: flex;
       align-items: center;
-      background-color: mintcream;
+      background-color: #eee;
       width: 69.4vw;
       height: 12vh;
       .search-mode-btns{
@@ -102,20 +113,27 @@
           margin-right: 15px;
         }
         li.search-btn{
-          font-size: 25px;  
+          font-size: 25px;
         }
         li{
           font-size: 20px;
           margin-left: 10px;
         }
+        li:hover{
+          border-bottom: 1px solid #222;
+        }
       }
       .text_field{
         margin-left: 20px;
-        line-height: 40px;
+        padding: 5px;
+        height: 70px;
+        border: 1px solid #00c0ff;
+        border-radius: 5px;
         width: calc(69.4vw - 310px);
+        resize: none;
       }
       .submit-btn{
-        border: 1px solid skyblue;
+        border: 2px solid #00c0ff;
         color: #00c0ff;
         line-height: 50px;
         width: 100px;
