@@ -1,6 +1,9 @@
 class Group < ApplicationRecord
   has_many :massages
-  has_many :users, through: :group_users
   has_many :group_users
-  belongs_to :note
+  has_many :users, through: :group_users
+
+  validates :name, presence: true, uniqueness: true
+
+  belongs_to :note, optional: true
 end
