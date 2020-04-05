@@ -15,6 +15,9 @@
     font-size: 30px;
     li{
       margin-bottom: 10px;
+      .side-menu__list__btn{
+        color: white;
+      }
     }
     li.move-right{
       padding-left: 4px;

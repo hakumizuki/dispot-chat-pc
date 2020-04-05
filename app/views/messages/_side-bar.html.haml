@@ -3,5 +3,5 @@
     .side-bar__header__icon
       = image_tag '/assets/live1.png', class: "tintin", size: '50x50'
     .side-bar__header__user-name
-      >10letters
+      = current_user.name
   .side-bar__groups

@@ -2,7 +2,7 @@
   .side-menu__list
     %ul
       %li
-        %a
+        = link_to edit_user_path(current_user), class: "side-menu__list__btn" do
           = icon('fas', 'user-cog')
       %li
         %a
