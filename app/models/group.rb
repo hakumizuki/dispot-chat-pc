@@ -1,9 +1,23 @@
 class Group < ApplicationRecord
-  has_many :massages
   has_many :group_users
   has_many :users, through: :group_users
+  has_many :messages
 
   validates :name, presence: true, uniqueness: true
 
   belongs_to :note, optional: true
+
+  mount_uploader :image, ImageUploader
+
+  def latest_message
+    if (last_message = messages.last).present?
+      if last_message.content?
+        last_message.content
+      else
+        '画像が投稿されています'
+      end
+    else
+      'メッセージはまだありません'
+    end
+  end
 end
