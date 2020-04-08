@@ -36,7 +36,7 @@
         %a
           = icon('fas', 'image')
     .main-chat__text-form__right-box
-      = form_for [@group, @message] do |f|
+      = form_for [@group, @message], remote: true do |f|
         = f.text_area :content, class: 'text-field', placeholder: 'type a message...' 
         .image-icon__mask
           = f.label :image, class: 'image-icon__mask__label' do
