@@ -63,6 +63,5 @@ $(function(){
       $('.submit-btn').prop('disabled', false);
     });
   });
-  
-  $('.main-chat__messages').animate({ scrollTop: $('.main-chat__messages')[0].scrollHeight});
+  // $('.main-chat__messages').animate({ scrollTop: $('.main-chat__messages')[0].scrollHeight});だとうまくいかないなあ
 });
