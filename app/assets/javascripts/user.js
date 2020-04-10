@@ -1,3 +1,6 @@
+// 追加されているユーザーを検索から排除するための配列
+const added_user_id = [];
+
 $(function(){
 
   $('#user-search-field').on('keyup', function(){
@@ -11,11 +14,21 @@ $(function(){
     })
     .done(function(users){
       $('#user-search-result').empty();
+      if(added_user_id.some(function(user_id){return user_id === String($('.js-arr').prop('value'));})){
+        ;
+      }else{
+        if($('.js-arr').prop('value') === undefined){
+          ;
+        }else{
+          added_user_id.push($('.js-arr').prop('value'));
+        }
+      }
+
       if (users.length !== 0){
         users.forEach(function(user){
           // 追加済みユーザーID配列と比較し、すでにあるなら検索結果から排除する
           if(added_user_id.some(function(user_id){return user_id === String(user.id);})){
-            return false;
+            ;
           }else{
             let html =` <div class="chat-group-user clearfix">
                           <p class="chat-group-user__name">${user.name}</p>
@@ -56,13 +69,22 @@ $(function(){
 
   $(document).on('click', '.chat-group-user__btn--remove', function(){
     $(this).parent().remove();
+    const user_id_ad_bef = $('.js-arr').prop('value');
+    const index_bef = added_user_id.indexOf(user_id_ad_bef);
+
     const user_id_ad = $(this).attr('data-user-id');
     const index = added_user_id.indexOf(user_id_ad);
+
     if(index >= 0){
       added_user_id.splice(index, 1);
+    }else{
+      ;
     }
-    // added_user_id.filter(function(user_id){return user_id !== String(user_id_ad);});
-    // なぜfilterではできなかったのか要考察！！！！！
-    console.log(added_user_id);
+
+    if(index >= 0){
+      added_user_id.splice(index_bef, 1);
+    }else{
+      ;
+    }
   });
 });
