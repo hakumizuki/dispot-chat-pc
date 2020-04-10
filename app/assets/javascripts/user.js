@@ -1,9 +1,6 @@
 $(function(){
-  // 追加されているユーザーを検索から排除するための配列
-  const added_user_id = [];
 
   $('#user-search-field').on('keyup', function(){
-
     let url = '/users';
     let input = $('#user-search-field').val();
     $.ajax({
