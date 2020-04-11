@@ -14,6 +14,7 @@ $(function(){
     })
     .done(function(users){
       $('#user-search-result').empty();
+      // もともと追加されているユーザーに対応
       if(added_user_id.some(function(user_id){return user_id === String($('.js-arr').prop('value'));})){
         ;
       }else{
@@ -69,20 +70,21 @@ $(function(){
 
   $(document).on('click', '.chat-group-user__btn--remove', function(){
     $(this).parent().remove();
+    // もともと追加されているユーザーに対応
     const user_id_ad_bef = $('.js-arr').prop('value');
     const index_bef = added_user_id.indexOf(user_id_ad_bef);
 
     const user_id_ad = $(this).attr('data-user-id');
     const index = added_user_id.indexOf(user_id_ad);
-
+    // もともと追加されているユーザーに対応
     if(index >= 0){
-      added_user_id.splice(index, 1);
+      added_user_id.splice(index_bef, 1);
     }else{
       ;
     }
-
+    
     if(index >= 0){
-      added_user_id.splice(index_bef, 1);
+      added_user_id.splice(index, 1);
     }else{
       ;
     }
