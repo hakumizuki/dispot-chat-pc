@@ -1,4 +1,5 @@
 class MessagesController < ApplicationController
+  protect_from_forgery except: :create
   before_action :set_group
 
   def index

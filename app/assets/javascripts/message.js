@@ -1,7 +1,7 @@
 $(function(){
-  function buildHtml(message){
+  function buildHTML(message){
     if ( message.image ) {
-      let html =
+      var html =
       ` <div class="message" data-message-id="${message.id}">
           <div class="message__upper-info">
             <div class="message__upper-info__talker">
@@ -20,7 +20,7 @@ $(function(){
         </div>`;
       return html;
     } else {
-      let html =
+      var html =
       ` <div class="message" data-message-id="${message.id}">
           <div class="message__upper-info">
             <div class="message__upper-info__talker">
@@ -39,10 +39,11 @@ $(function(){
       return html;
     };
   }
-  $('.new_message').on('submit', function(e){
+
+  $('#new_message').on('submit', function(e){
     e.preventDefault();
-    let formData = new FormData(this);
-    let url = $(this).attr('action');
+    var formData = new FormData(this);
+    var url = $(this).attr('action');
     $.ajax({
       url: url,
       type: 'POST',
@@ -52,7 +53,7 @@ $(function(){
       contentType: false
     })
     .done(function(data){
-      let html = buildHtml(data);
+      var html = buildHTML(data);
       $('.main-chat__messages').append(html);
       $('.main-chat__messages').animate({ scrollTop: $('.main-chat__messages')[0].scrollHeight});
       $('form')[0].reset();
@@ -63,5 +64,31 @@ $(function(){
       $('.submit-btn').prop('disabled', false);
     });
   });
-  // $('.main-chat__messages').animate({ scrollTop: $('.main-chat__messages')[0].scrollHeight});だとうまくいかないなあ
+
+  var reloadMessages = function() {
+    var last_message_id = $('.message:last').data("message-id");
+    console.log(last_message_id);
+    $.ajax({
+      url: "api/messages",
+      type: 'GET',
+      data: {id: last_message_id},
+      dataType: 'json'
+    })
+    .done(function(messages) {
+      if (messages.length !== 0) {
+        var insertHTML = '';
+        $.each(messages, function(i, message) {
+          insertHTML += buildHTML(message)
+        });
+        $('.main-chat__messages').append(insertHTML);
+        $('.main-chat__messages').animate({ scrollTop: $('.main-chat__messages')[0].scrollHeight});
+      }
+    })
+    .fail(function() {
+      alert('error');
+    });
+  };
+  if (document.location.href.match(/\/groups\/\d+\/messages/)) {
+    setInterval(reloadMessages, 7000);
+  };
 });
