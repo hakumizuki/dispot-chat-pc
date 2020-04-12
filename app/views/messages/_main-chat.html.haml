@@ -1,27 +1,30 @@
 .main-chat
+
   .main-chat__header
     .main-chat__header__left-box
       .main-chat__header__left-box__group-name
-        = @group.name
+        Timpos
       %ul.main-chat__header__left-box__members
         Members :
-        - @group.users.each do |user|
-          %li
-            = user.name
+        %li
+          user1
+        %li
+          user2
       %ul.main-chat__header__left-box__invited-users
         Invited Members :
         %li
           user3
         %li
           user4
-    = link_to edit_group_path(@group), class: "main-chat__header__edit-btn" do
+    .main-chat__header__edit-btn
       Edit
+
   .main-chat__messages
-    = render @messages
+
   .main-chat__text-form
-    %ul.main-chat__text-form__left-box
+    %ul.search-mode-btns
       %li.clipboard-icon
-        %a
+        = link_to group_notes_path(@group) do
           = icon('far', 'clipboard')
       %li.search-btn
         %a
@@ -36,7 +39,7 @@
         %a
           = icon('fas', 'image')
     .main-chat__text-form__right-box
-      = form_for [@group, @message], remote: true do |f|
+      = form_for [@group, @message] do |f|
         = f.text_area :content, class: 'text-field', placeholder: 'type a message...' 
         .image-icon__mask
           = f.label :image, class: 'image-icon__mask__label' do

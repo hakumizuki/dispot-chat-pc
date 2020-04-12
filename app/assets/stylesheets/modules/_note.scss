@@ -1,0 +1,139 @@
+// index.html.haml用
+.note-page-with-new{
+  display: flex;
+  background-color: #fff;
+  width: 69.4vw;
+  height: 73vh;
+  .notes-left{
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;
+    background-color: #999;
+    width: 4.4vw;
+    height: 73vh;
+    a{
+      font-size: 20px;
+      color: #fff;
+    }
+  }
+  .notes{
+    background-color: #eee;
+    padding-top: 20px;
+    width: 65vw;
+    height: 73vh;
+    overflow: scroll;
+    a{
+      text-decoration: none;
+      .note{
+        width: 55vw;
+        height: 100px;
+        margin: 0 auto 10px;
+        border-bottom: 1px solid #555;
+        &__title{
+          color: #333;
+          font-size: 25px;
+          margin-bottom: 10px;
+        }
+        &__updated-at{
+          color: #999;
+          margin-left: 5px;
+        }
+      }
+    }
+  }
+}
+
+// new.html.haml、edit.html.haml用
+
+.note-page{
+  display: flex;
+  background-color: #fff;
+  width: 69.4vw;
+  height: 85vh;
+  .notes-left{
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;
+    background-color: #999;
+    width: 4.4vw;
+    height: 85vh;
+    &__back-btn{
+      font-size: 20px;
+      a{
+        color: #fff;
+      }
+    }
+  }
+  .note-form{
+    background-color: #eee;
+    padding: 20px 40px;
+    width: 65vw;
+    height: 85vh;
+    overflow: scroll;
+    &__box{
+      margin-bottom: 10px;
+      padding-bottom: 5px;
+      border-bottom: 2px solid #555;
+      &__label{
+        font-size: 25px;
+      }
+      &__bottom{
+        width: calc(65vw - 80px);
+        padding: 5px;
+          &__text-field{
+            width: calc(65vw - 90px);
+            border: 1px solid #00c0ff;
+            border-radius: 5px;
+            font-size: 25px;
+          }
+          &__text-area{
+            width: calc(65vw - 90px);
+            line-height: 20px;
+            padding: 5px;
+            resize: none;
+            border: 1px solid #00c0ff;
+            border-radius: 5px;
+          }
+        }
+      }
+    &__submit-btn{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 20px auto 30px;
+      .note-submit-btn{
+        border: 2px solid #00c0ff;
+        color: #00c0ff;
+        height: 50px;
+        width: 100px;
+        text-align: center;
+        font-size: 20px;
+        margin-top: 10px;
+        margin-right: 15px;
+        margin-left: 20px;
+      }
+    }
+    }
+  }
+
+// new.html.haml用
+.plus-new{
+  text-decoration: none;
+  .new-note{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: lightblue;
+    border-top: 2px solid #555;
+    width: 69.4vw;
+    height: 12vh;
+    color: #333;
+    font-size: 25px;
+    p{
+      margin-left: 15px;
+      font-size: 30px;
+      font-weight: bold;
+    }
+  }
+}
+
