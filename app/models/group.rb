@@ -5,7 +5,7 @@ class Group < ApplicationRecord
 
   validates :name, presence: true, uniqueness: true
 
-  belongs_to :note, optional: true
+  has_many :notes
 
   mount_uploader :image, ImageUploader
 

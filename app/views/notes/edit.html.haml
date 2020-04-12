@@ -1,0 +1,25 @@
+.wrapper
+  = render "messages/side-menu"
+  = render "messages/side-bar"
+  .main-chat
+    .main-chat__header
+      .main-chat__header__left-box
+        .main-chat__header__left-box__group-name
+          = @group.name
+        %ul.main-chat__header__left-box__members
+          Members :
+          - @group.users.each do |user|
+            %li
+              = user.name
+        %ul.main-chat__header__left-box__invited-users
+          Invited Members :
+          %li
+            user3
+          %li
+            user4
+      = link_to edit_group_path(@group), class: "main-chat__header__edit-btn" do
+        Edit
+    -# ここからノート
+    .note-page
+      = render "left-bar-btn"
+      = render partial: 'form', locals: { note: @note }

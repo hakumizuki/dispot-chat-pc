@@ -1,0 +1,23 @@
+= form_for [@group, note] do |f|
+  .note-form
+    .note-form__box
+      .note-form__box__label
+        = f.label :title, 'Title'
+      .note-form__box__bottom
+        = f.text_field :title, class: 'note-form__box__bottom__text-field', placeholder: 'タイトルを入力してください'
+    .note-form__box
+      .note-form__box__label
+        = f.label :content, 'Summary'
+      .note-form__box__bottom
+        = f.text_area :content, class: 'note-form__box__bottom__text-area textarea', placeholder: 'ディスカッションの要約を記述してください'
+    .note-form__box
+      .note-form__box__label
+        = f.label :url, '参考URL'
+      .note-form__box__bottom
+        = f.text_area :url, class: 'note-form__box__bottom__text-area textarea', placeholder: 'ディスカッションの参考URLを記述してください'
+      .note-form__box__label
+        = f.label :image, '参考画像'
+      .note-form__box__bottom
+        = f.file_field :image, class: 'note-form__box__bottom__file-field'
+    .note-form__submit-btn
+      = f.submit 'Save', class: "note-submit-btn"
