@@ -2,13 +2,13 @@
   .side-menu__list
     %ul
       %li
-        %a
+        = link_to edit_user_path(current_user), class: "side-menu__list__btn" do
           = icon('fas', 'user-cog')
       %li
         = link_to root_path, class: "side-menu__list__btn" do
           = icon('far', 'comments')
       %li.move-right
-        %a
+        = link_to new_group_path, class: "side-menu__list__btn" do
           = icon('far', 'plus-square')
       %li.move-right-abit
         %a

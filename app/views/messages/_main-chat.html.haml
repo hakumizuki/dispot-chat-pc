@@ -1,28 +1,26 @@
 .main-chat
-
   .main-chat__header
     .main-chat__header__left-box
-      .main-chat__header__left-box__group-name
-        Timpos
+      %p.main-chat__header__left-box__group-name
+        = @group.name
       %ul.main-chat__header__left-box__members
-        Members :
-        %li
-          user1
-        %li
-          user2
+        Member :
+        - @group.users.each do |user|
+          %li
+            = user.name
       %ul.main-chat__header__left-box__invited-users
         Invited Members :
         %li
           user3
         %li
           user4
-    .main-chat__header__edit-btn
+    = link_to edit_group_path(@group), class: "main-chat__header__edit-btn" do
       Edit
 
   .main-chat__messages
-
+    = render @messages
   .main-chat__text-form
-    %ul.search-mode-btns
+    %ul.main-chat__text-form__left-box
       %li.clipboard-icon
         = link_to group_notes_path(@group) do
           = icon('far', 'clipboard')
