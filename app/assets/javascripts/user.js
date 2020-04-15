@@ -62,7 +62,7 @@ $(function(){
     <div class="chat-group-user clearfix">
       <input name='group[user_ids][]' type='hidden' value='${user_id}'>
         <p class="chat-group-user__name">${user_name}</p>
-        <div class="user-search-remove chat-group-user__btn chat-group-user__btn--remove" data-user-id="${user_id}" data-user-name="${user_name}">削除</div>
+        <div class="user-search-remove chat-group-user__btn chat-group-user__btn--remove" data-user-id="${user_id}" data-user-name="${user_name}">取消</div>
     </div>
     ` ;
     $('#chat-group-users').append(html)
@@ -77,7 +77,7 @@ $(function(){
     const user_id_ad = $(this).attr('data-user-id');
     const index = added_user_id.indexOf(user_id_ad);
     // もともと追加されているユーザーに対応
-    if(index >= 0){
+    if(index_bef >= 0){
       added_user_id.splice(index_bef, 1);
     }else{
       ;

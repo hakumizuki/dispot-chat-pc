@@ -1,5 +1,9 @@
 class GroupsController < ApplicationController
+  before_action :accepted_user
+
   def index
+    # group_users = GroupUser.where('user_id = ?', current_user.id)
+    # @accepted_user = group_users.where('status = ?', 2)
   end
 
   def new
@@ -30,6 +34,11 @@ class GroupsController < ApplicationController
   end
 
   private
+
+  def accepted_user
+    group_users = GroupUser.where('user_id = ?', current_user.id)
+    @accepted_user = group_users.where('status = ?', 2)
+  end
 
   def group_params
     params.require(:group).permit(:name, :image, user_ids: [])

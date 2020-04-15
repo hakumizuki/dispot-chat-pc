@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :accepted_user
+
   def index
     return nil if params[:keyword] == ""
     @users = User.where('name LIKE ?', "%#{params[:keyword]}%").where.not(id: current_user.id).limit(10)
@@ -23,5 +25,10 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:name, :email, :image)
+  end
+
+  def accepted_user
+    group_users = GroupUser.where('user_id = ?', current_user.id)
+    @accepted_user = group_users.where('status = ?', 2)
   end
 end

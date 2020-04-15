@@ -1,5 +1,6 @@
 class NotesController < ApplicationController
   before_action :set_group
+  before_action :accepted_user
 
   def index
     @notes = @group.notes
@@ -39,5 +40,10 @@ class NotesController < ApplicationController
 
   def note_params
     params.require(:note).permit(:title, :content, :image, :url)
+  end
+
+  def accepted_user
+    group_users = GroupUser.where('user_id = ?', current_user.id)
+    @accepted_user = group_users.where('status = ?', 2)
   end
 end

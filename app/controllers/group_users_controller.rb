@@ -1,6 +1,7 @@
 class GroupUsersController < ApplicationController
   before_action :set_groups
   before_action :set_user
+  before_action :accepted_user
 
   def index
     @inviteds = GroupUser.where('user_id = ? and status = ?', current_user.id, 1)
@@ -9,11 +10,11 @@ class GroupUsersController < ApplicationController
 
   def update
     @group_user = GroupUser.find(params[:id])
-    if @group_user.update(status_params)
-      redirect_to user_group_users_path(current_user)
-    else
-      render :index
-    end
+      if @group_user.update(status_params)
+        redirect_to user_group_users_path(current_user)
+      else
+        render :index
+      end
   end
 
   private
@@ -28,5 +29,10 @@ class GroupUsersController < ApplicationController
 
   def status_params
     params.permit(:group_id, :user_id, :status)
+  end
+
+  def accepted_user
+    group_users = GroupUser.where('user_id = ?', current_user.id)
+    @accepted_user = group_users.where('status = ?', 2)
   end
 end

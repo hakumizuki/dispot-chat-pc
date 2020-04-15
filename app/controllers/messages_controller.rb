@@ -1,6 +1,7 @@
 class MessagesController < ApplicationController
   protect_from_forgery except: :create
   before_action :set_group
+  before_action :accepted_user
 
   def index
     @message = Message.new
@@ -28,5 +29,10 @@ class MessagesController < ApplicationController
 
   def set_group
     @group = Group.find(params[:group_id])
+  end
+
+  def accepted_user
+    group_users = GroupUser.where('user_id = ?', current_user.id)
+    @accepted_user = group_users.where('status = ?', 2)
   end
 end
