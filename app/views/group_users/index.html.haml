@@ -13,7 +13,7 @@
           = form_for [@user, @group_user], url: user_group_user_path(current_user, invited), method: 'patch' do |f|
             .invited-group
               .invited-group__left-box
-                = @groups[invited.group_id].name
+                = @groups[invited.group_id - 1].name
               %ul.invited-group__right-box
                 %li
                   %a

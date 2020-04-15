@@ -12,6 +12,8 @@
     justify-content: space-between;
     align-items: center;
     border-bottom: 2px solid #555;
+    margin: 10px;
+    padding: 10px 20px;
     &__left-box{
       font-size: 20px;
       font-weight: bold;
@@ -19,9 +21,9 @@
     }
     &__right-box{
       display: flex;
-      margin-left: 10px;
       li{
         list-style: none;
+        margin-left: 10px;
         a{
           text-decoration: none;
           .invited-group__right-box__details{
