@@ -13,7 +13,10 @@ class GroupsController < ApplicationController
 
   def create
     @group = Group.new(group_params)
+    # グループ作成者のstatusを2にする
     if @group.save
+      founder_record = GroupUser.where('group_id = ? and user_id = ?', @group.id, current_user.id)
+      founder_record.update(status: 2)
       redirect_to root_path, notice: 'グループを作成しました'
     else
       render :new
