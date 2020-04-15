@@ -31,4 +31,5 @@ class UsersController < ApplicationController
     group_users = GroupUser.where('user_id = ?', current_user.id)
     @accepted_user = group_users.where('status = ?', 2)
   end
+
 end
