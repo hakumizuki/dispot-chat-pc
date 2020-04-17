@@ -11,5 +11,5 @@
         = link_to new_group_path, class: "side-menu__list__btn" do
           = icon('far', 'plus-square')
       %li.move-right-abit
-        %a
+        = link_to user_group_users_path(current_user), class: "side-menu__list__btn" do
           = icon('fas', 'exclamation-circle')

@@ -6,14 +6,15 @@
       %ul.main-chat__header__left-box__members
         Member :
         - @group.users.each do |user|
-          %li
-            = user.name
+          - if (torichan(@group.id, user.id) == "member")
+            %li
+              = user.name
       %ul.main-chat__header__left-box__invited-users
         Invited Members :
-        %li
-          user3
-        %li
-          user4
+        - @group.users.each do |user|
+          - if (torichan(@group.id, user.id) == "invited")
+            %li
+              = user.name
     = link_to edit_group_path(@group), class: "main-chat__header__edit-btn" do
       Edit
 

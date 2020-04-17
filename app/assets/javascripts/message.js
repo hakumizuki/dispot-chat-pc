@@ -87,7 +87,13 @@ $(function(){
       alert('error');
     });
   };
+
+  $(".autolink").each(function(){
+    $(this).html( $(this).html().replace(/((http|https|ftp):\/\/[\w?=&.\/-;#~%-]+(?![\w\s?&.\/;#~%"=-]*>))/g, '<a href="$1">$1</a> ') );
+  });
+
   if (document.location.href.match(/\/groups\/\d+\/messages/)) {
     setInterval(reloadMessages, 3000);
   };
 });
+

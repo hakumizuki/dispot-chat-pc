@@ -1,0 +1,31 @@
+.wrapper
+  = render "messages/side-menu"
+  = render "messages/side-bar"
+  .main-chat
+    .main-chat__header
+      .main-chat__header__left-box
+        .main-chat__header__left-box__group-name
+          招待されているグループ
+    .invited-groups
+      = render 'left-bar-btg'
+      .invited-groups__right
+        - @inviteds.each do |invited|
+          = form_for [@user, @group_user], url: user_group_user_path(current_user, invited), method: 'patch' do |f|
+            .invited-group
+              .invited-group__left-box
+                = @groups[invited.group_id - 1].name
+              %ul.invited-group__right-box
+                %li
+                  %a
+                    .invited-group__right-box__details
+                      ノートを見る
+                %li
+                  %label
+                    .invited-group__right-box__accept
+                      承認
+                      = f.submit '2', name: 'status', class: 'hidden-submit-btn'
+                %li
+                  %label
+                    .invited-group__right-box__deny
+                      拒否
+                      = f.submit '0', name: 'status', class: 'hidden-submit-btn'
