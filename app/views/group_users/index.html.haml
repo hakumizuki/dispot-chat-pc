@@ -25,7 +25,6 @@
                       承認
                       = f.submit '2', name: 'status', class: 'hidden-submit-btn'
                 %li
-                  %label
+                  = link_to group_user_path(invited.id), method: "delete" do
                     .invited-group__right-box__deny
                       拒否
-                      = f.submit '0', name: 'status', class: 'hidden-submit-btn'
