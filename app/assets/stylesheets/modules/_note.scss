@@ -64,6 +64,44 @@
       }
     }
   }
+  .notes{
+    background-color: #eee;
+    padding-top: 20px;
+    width: 65vw;
+    height: 73vh;
+    overflow: scroll;
+    // detail用
+    .note-detail__box{
+      margin: 10px 20px 20px;
+      padding: 0 10px 20px;
+      border-bottom: 2px solid #555;
+      p{
+        font-size: 25px;
+        margin-bottom: 10px;
+      }
+      &__inner{
+        width: calc(65vw - 90px);
+      }
+    }
+    a{
+      text-decoration: none;
+      .note{
+        width: 55vw;
+        height: 100px;
+        margin: 0 auto 10px;
+        border-bottom: 1px solid #555;
+        &__title{
+          color: #333;
+          font-size: 25px;
+          margin-bottom: 10px;
+        }
+        &__updated-at{
+          color: #999;
+          margin-left: 5px;
+        }
+      }
+    }
+  }
   .note-form{
     background-color: #eee;
     padding: 20px 40px;

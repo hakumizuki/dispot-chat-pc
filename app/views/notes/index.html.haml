@@ -4,19 +4,20 @@
   .main-chat
     .main-chat__header
       .main-chat__header__left-box
-        .main-chat__header__left-box__group-name
+        %p.main-chat__header__left-box__group-name
           = @group.name
         %ul.main-chat__header__left-box__members
-          Members :
+          Member :
           - @group.users.each do |user|
-            %li
-              = user.name
+            - if (torichan(@group.id, user.id) == "member")
+              %li
+                = user.name
         %ul.main-chat__header__left-box__invited-users
           Invited Members :
-          %li
-            user3
-          %li
-            user4
+          - @group.users.each do |user|
+            - if (torichan(@group.id, user.id) == "invited")
+              %li
+                = user.name
       = link_to edit_group_path(@group), class: "main-chat__header__edit-btn" do
         Edit
     .note-page-with-new

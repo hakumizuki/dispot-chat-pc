@@ -43,7 +43,7 @@
       height: 15vh;
       &__user-name{
         font-size: 24px;
-        margin-left: calc(2vw);
+        margin-left: calc(1vw);
         color: #eee;
       }
     }
@@ -51,6 +51,7 @@
       background-color: #333;
       height: 85vh;
       padding: 20px 20px 40px;
+      overflow: scroll;
       &__group__box{
         display: block;
         text-decoration: none;

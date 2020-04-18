@@ -15,9 +15,9 @@
         = f.label :url, '参考URL'
       .note-form__box__bottom
         = f.text_area :url, class: 'note-form__box__bottom__text-area textarea', placeholder: 'ディスカッションの参考URLを記述してください'
-      .note-form__box__label
-        = f.label :image, '参考画像'
-      .note-form__box__bottom
-        = f.file_field :image, class: 'note-form__box__bottom__file-field'
+      -# .note-form__box__label
+      -#   = f.label :image, '参考画像'
+      -# .note-form__box__bottom
+      -#   = f.file_field :image, class: 'note-form__box__bottom__file-field'
     .note-form__submit-btn
       = f.submit 'Save', class: "note-submit-btn"

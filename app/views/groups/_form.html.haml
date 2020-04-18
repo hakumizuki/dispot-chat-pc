@@ -29,7 +29,7 @@
           %p.chat-group-user__name
             = current_user.name
         - group.users.each do |user|
-          - if current_user.id != user.id
+          - if (current_user.id != user.id && GroupUser.where('group_id = ? and user_id = ?', group.id, user.id)[0].status != 0)
             .chat-group-user.clearfix.js-chat-member
               %input.js-arr{name: "group[user_ids][]", type: "hidden", value: user.id}
               %p.chat-group-user__name

@@ -7,8 +7,6 @@ class Group < ApplicationRecord
 
   has_many :notes
 
-  mount_uploader :image, ImageUploader
-
   def latest_message
     if (last_message = messages.last).present?
       if last_message.content?

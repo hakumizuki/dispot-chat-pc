@@ -16,7 +16,7 @@
                 = @groups[invited.group_id - 1].name
               %ul.invited-group__right-box
                 %li
-                  %a
+                  = link_to group_show_notes_path(invited.group_id) do
                     .invited-group__right-box__details
                       ノートを見る
                 %li
@@ -25,7 +25,6 @@
                       承認
                       = f.submit '2', name: 'status', class: 'hidden-submit-btn'
                 %li
-                  %label
+                  = link_to group_user_path(invited.id), method: "delete" do
                     .invited-group__right-box__deny
                       拒否
-                      = f.submit '0', name: 'status', class: 'hidden-submit-btn'
