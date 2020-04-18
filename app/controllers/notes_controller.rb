@@ -6,6 +6,14 @@ class NotesController < ApplicationController
     @notes = @group.notes
   end
 
+  def show
+    @shownotes = @group.notes
+  end
+
+  def detail
+    @note = Note.find(params[:id])
+  end
+
   def new
     @note = Note.new
   end

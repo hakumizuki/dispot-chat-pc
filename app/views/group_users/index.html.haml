@@ -16,7 +16,7 @@
                 = @groups[invited.group_id - 1].name
               %ul.invited-group__right-box
                 %li
-                  %a
+                  = link_to group_show_notes_path(invited.group_id) do
                     .invited-group__right-box__details
                       ノートを見る
                 %li

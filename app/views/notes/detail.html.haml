@@ -6,6 +6,7 @@
       .main-chat__header__left-box
         %p.main-chat__header__left-box__group-name
           = @group.name
+          のノート
         %ul.main-chat__header__left-box__members
           Member :
           - @group.users.each do |user|
@@ -18,9 +19,7 @@
             - if (torichan(@group.id, user.id) == "invited")
               %li
                 = user.name
-      = link_to edit_group_path(@group), class: "main-chat__header__edit-btn" do
-        Edit
-    -# ここからノート
     .note-page
-      = render "left-bar-btn"
-      = render partial: 'form', locals: { note: @note }
+      = render "left-bar-bts"
+      .notes
+        = render "detail"
