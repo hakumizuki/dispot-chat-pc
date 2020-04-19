@@ -50,5 +50,6 @@ test:
 production:
   <<: *default
   database: dispot-chat-pc_production
-  username: dispot-chat-pc
-  password: <%= ENV['DISPOT-CHAT-PC_DATABASE_PASSWORD'] %>
+  username: root
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock
