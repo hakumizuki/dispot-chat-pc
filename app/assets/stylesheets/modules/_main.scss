@@ -26,10 +26,16 @@
     li.move-right-abit{
       padding-left: 3px;
     }
-    li:hover{
-      margin-bottom: 9px;
-      border-bottom: 1px solid #00e0ff;
-      transition: border-width 0.6s linear;
+    li::after{
+      content: '';
+      display: block;
+      width: 0;
+      height: 1px;
+      background-color: #00e0ff;
+    }
+    li:hover::after{
+      width: 100%;
+      transition: width .4s;
     }
   }
   .side-bar{
