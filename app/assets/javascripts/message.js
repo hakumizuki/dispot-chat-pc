@@ -53,6 +53,7 @@ $(function(){
       contentType: false
     })
     .done(function(data){
+      // dataにメッセージのidを入れて、既に表示されているメッセージと同じものを２度表示しない条件を書くべき！
       var html = buildHTML(data);
       $('.main-chat__messages').append(html);
       $('.main-chat__messages').animate({ scrollTop: $('.main-chat__messages')[0].scrollHeight});
